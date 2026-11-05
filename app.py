@@ -88,14 +88,7 @@ def rc_logo_data_uri(gradient_id: str) -> str:
 
 
 def build_rc_page_icon():
-    size = 128
-    font_candidates = (
-        Path("C:/Windows/Fonts/georgiab.ttf"),
-        Path("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf"),
-    )
-    font_path = next((candidate for candidate in font_candidates if candidate.is_file()), None)
-    if font_path is None:
-        raise FileNotFoundError("A serif font is required to render the RC page icon.")
+    return "🤖"
 
     font = ImageFont.truetype(str(font_path), 76)
     mask = Image.new("L", (size, size), 0)

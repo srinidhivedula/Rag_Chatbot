@@ -8,3 +8,11 @@ tavily-python
 python-dotenv
 faiss-cpu
 pypdf
+python-docx
+python-pptx
+openpyxl
+opencv-python-headless<4.12
+numpy<2
+pillow
+requests
+gunicorn

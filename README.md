@@ -1,6 +1,8 @@
-# Hybrid PDF Chatbot
+# Hybrid Document Chatbot
 
-A Streamlit chatbot that uses Groq's `openai/gpt-oss-120b` for answers and summaries. When a PDF is uploaded, it tries the document context first. If the answer is not in the PDF, or no PDF is uploaded, it searches the web with Tavily and asks Groq to answer from the results. Google embeddings and FAISS are used only to index/search PDF text.
+A Streamlit chatbot that uses Groq's `openai/gpt-oss-120b` for answers and summaries. Uploaded documents are searched first; if the answer is not in the document, or no document is uploaded, the chatbot searches the web with Tavily and asks Groq to answer from the results. Google embeddings and FAISS index searchable content.
+
+The upload flow accepts PDF, DOC/DOCX, PPT/PPTX, XLS/XLSX/XLSM, ODT/ODP/ODS, RTF, CSV/TSV, JSON/JSONL, HTML/XML, common text and code files, JPG/JPEG/PNG/WEBP/GIF/BMP/TIFF images, and MP4/M4V/MOV/AVI/MKV/WEBM/MPEG/WMV/3GP videos. Images and sampled video frames are described by Google's Gemini vision model; video audio tracks are not transcribed. Legacy Office and OpenDocument files require LibreOffice to be installed. Other file formats can be selected, but the app reports when it has no content extractor for a format.
 
 ## Setup and run in VS Code (Windows)
 
@@ -13,7 +15,7 @@ A Streamlit chatbot that uses Groq's `openai/gpt-oss-120b` for answers and summa
    ```
 
    In PowerShell, create the file with `Copy-Item .env.example .env` before editing it.
-   `GOOGLE_API_KEY` is only needed when uploading a PDF, for its embeddings. Do not commit `.env`; it is ignored by Git.
+   `GOOGLE_API_KEY` is needed to index uploaded files and to analyze images or video frames. Do not commit `.env`; it is ignored by Git.
 
 2. In the VS Code PowerShell terminal, install and run:
 
